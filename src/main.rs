@@ -1,9 +1,6 @@
-mod controllers;
 mod infra;
-mod services;
-use infra::database::*;
-
+mod test;
 fn main() {
-    connection::establish();
+    test::test::test_function();
     println!("Hello, world!");
 }
