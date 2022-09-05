@@ -7,11 +7,11 @@ struct Info {
 }
 
 #[get("/hello")]
-pub async fn hello() -> impl Responder {
+async fn hello() -> impl Responder {
     HttpResponse::Ok().body("Hello world!")
 }
 
 #[post("/echo")]
 async fn echo(info: web::Json<Info>) -> impl Responder {
-    return HttpResponse::Ok().body(info.username.clone());
+    return HttpResponse::Ok().json(info);
 }

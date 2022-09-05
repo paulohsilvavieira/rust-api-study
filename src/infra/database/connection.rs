@@ -8,8 +8,12 @@ use std::env;
 
 pub fn establish() -> PgConnection {
     dotenv().ok();
-    println!("Connecting on Database...");
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    return PgConnection::establish(&database_url)
-        .expect(&format!("Error connecting to {}", database_url));
+    let connection = PgConnection::establish(&database_url);
+
+    if connection.is_ok() {
+        println!("Connection Established!")
+    }
+
+    return connection.expect("Error Ocurred on establish connection Database");
 }
