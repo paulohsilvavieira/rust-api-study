@@ -1,1 +1,1 @@
-pub mod create_post;
+pub mod create_post_service;

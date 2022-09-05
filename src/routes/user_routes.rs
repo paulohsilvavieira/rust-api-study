@@ -1,4 +1,8 @@
+#[path = "../services/mod.rs"]
+mod services;
 use actix_web::{get, post, web, HttpResponse, Responder};
+use services::posts::create_post_service::create_post;
+
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Debug, Serialize)]
@@ -13,5 +17,6 @@ async fn hello() -> impl Responder {
 
 #[post("/echo")]
 async fn echo(info: web::Json<Info>) -> impl Responder {
-    return HttpResponse::Ok().json(info);
+    let result = create_post();
+    return HttpResponse::Ok().json(result);
 }

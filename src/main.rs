@@ -1,11 +1,9 @@
 mod infra;
 mod routes;
-mod services;
 use infra::database::connection;
 
 use actix_web::{App, HttpServer};
 use routes::user_routes::*;
-use services::*;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
