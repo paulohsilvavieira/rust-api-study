@@ -1,6 +1,7 @@
 POST http://localhost:8080/echo
 content-type: application/json
+Authorization: secret1234
 
 {
-    "username": "sample"
+    "username": "joao"
 }
